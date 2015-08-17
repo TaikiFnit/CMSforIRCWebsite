@@ -36,27 +36,44 @@ class dispatcher {
 
 		var_dump($params);
 
-/*
 		// Controllerのインスタンス化
 		switch($controller) {
 			// index.html
 			case 'index':
 				require_once $this->sysRoot . '/Controller/indexController.php';
-				$controllerInstance = new indexController($this->sysRoot);
+				//$controllerInstance = new indexController($this->sysRoot);
 				break;
 			// news一覧やnews
 			case 'news':
-				require_once $this->sysRoot . '/Controller/newsController.php';
-				$controllerInstance = new newsController($this->sysRoot, $_SERVER['REQUEST_METHOD'], $params);
+
+				// news一覧へのアクセスか、newsへのアクセスかを切り替える
+
+				if(0 < count($params[2])) {
+					if(0 < count($params[3])) {
+						// /news/20**/**へのアクセス
+						require_once $this->sysRoot . '/Controller/newsController.php';
+						$controllerInstance = new newsController($this->sysRoot, $params);
+					}
+					else {
+						// news一覧へのアクセス
+						require_once $this->sysRoot . '/Controller/newsListController.php';
+						$controllerInstance = new newsListController($this->sysRoot, $params);
+					}
+				}
+				else {
+					// /news/　へのアクセス
+					// 見たい年が入力されていないので強制的に最新のニュース一覧へリダイレクト	
+					echo 'redirect';
+				}
+
 				break;
 			default: 
 				require_once $this->sysRoot . '/Controller/staticController.php';
-				$controllerInstance = new staticController(this->sysRoot, $params);
+				//$controllerInstance = new staticController(this->sysRoot, $params);
 				break;
 		}
 
-		$controllerInstance->run();
-		*/
+		//$controllerInstance->run();
 	}
 }
 
