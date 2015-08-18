@@ -13,15 +13,6 @@ class helperModel extends mysqlModel {
 		$this->dbh = $this->connectDB();
 	}
 
-	protected function execution($sql) {
-
-		$stmt = $this->dbh->prepare($sql);
-
-		$stmt->execute();
-
-		return $stmt->fetchAll();
-	}
-
 	function fetchYears() {
 
 		$sql = 'select date_format(`created`, "%Y") as year from news group by date_format(`created`, "%Y") order by created desc';

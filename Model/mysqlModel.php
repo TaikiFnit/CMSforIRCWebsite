@@ -19,4 +19,15 @@ class mysqlModel
 			exit;
 		}
 	}
+	
+	protected function execution($sql) {
+
+		$stmt = $this->dbh->prepare($sql);
+
+		$stmt->execute();
+
+		return $stmt->fetchAll();
+	}
+
 }
+

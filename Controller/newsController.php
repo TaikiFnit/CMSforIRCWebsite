@@ -9,5 +9,8 @@ class newsController {
 	}
 	
 	function run() {
+
+		
+
 	}
 }

@@ -69,6 +69,7 @@ class dispatcher {
 				}
 
 				break;
+				
 			default: 
 				require_once $this->sysRoot . '/Controller/staticController.php';
 				$controllerInstance = new staticController($this->sysRoot, $params);
