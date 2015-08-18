@@ -1,8 +1,8 @@
 <?php
 
-define('DB_NAME', 'web2015');
+define('DB_NAME', 'ircnews');
 define('DSN', 'mysql:host=localhost;dbname=' . DB_NAME);
-define('DB_USER', 'design2015');
-define('DB_PASSWORD', '7ju9ss&AI');
+define('DB_USER', 'irc_user');
+define('DB_PASSWORD', 'irc_password');
 
 error_reporting(E_ALL & ~E_NOTICE);

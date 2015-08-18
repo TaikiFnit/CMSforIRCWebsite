@@ -34,14 +34,14 @@ class dispatcher {
 		$controller = basename($controller, '.html');
 		$controller = basename($controller, '.php');
 
-		var_dump($params);
+		require_once $this->sysRoot . '/Controller/helpers.php';
 
 		// Controllerのインスタンス化
 		switch($controller) {
 			// index.html
 			case 'index':
 				require_once $this->sysRoot . '/Controller/indexController.php';
-				//$controllerInstance = new indexController($this->sysRoot);
+				$controllerInstance = new indexController($this->sysRoot);
 				break;
 			// news一覧やnews
 			case 'news':
@@ -63,7 +63,10 @@ class dispatcher {
 				else {
 					// /news/　へのアクセス
 					// 見たい年が入力されていないので強制的に最新のニュース一覧へリダイレクト	
-					echo 'redirect';
+					// これの判定について用件等 test case 2016年にアクセスをし、まだ2016年の記事がない場合など
+					echo 'redirect to /news/new news';
+
+					exit;
 				}
 
 				break;

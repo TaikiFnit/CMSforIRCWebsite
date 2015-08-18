@@ -1,6 +1,6 @@
 create database ircnews character set utf8;
 use ircnews;
-grant all on irc.* to irc_user@localhost;
+grant all on ircnews.* to irc_user@localhost;
 set password for irc_user@localhost=password('irc_password');
 
 create table `news` (
@@ -12,6 +12,9 @@ create table `news` (
 	`team` int,
 	`created` date,
 	`images` int,
-	`image1` text,
-	`image2` text
+	`image_src1` text,
+	`image_src2` text,
+	`image_alt1` text,
+	`image_alt2` text
 ) CHARACTER SET 'utf8';
+
