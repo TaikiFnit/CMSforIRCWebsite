@@ -13,16 +13,26 @@ class helperModel extends mysqlModel {
 		$this->dbh = $this->connectDB();
 	}
 
-	function fetchYears() {
-
-		$sql = 'select date_format(`created`, "%Y") as year from news group by date_format(`created`, "%Y") order by created desc';
+	protected function execution($sql) {
 
 		$stmt = $this->dbh->prepare($sql);
 
 		$stmt->execute();
 
-		$this->dbh = null;
-
 		return $stmt->fetchAll();
+	}
+
+	function fetchYears() {
+
+		$sql = 'select date_format(`created`, "%Y") as year from news group by date_format(`created`, "%Y") order by created desc';
+
+		return $this->execution($sql);	
+	}
+
+	function fetchNewestYear() {
+
+		$sql = 'select max(date_format(`created`, "%Y")) as newestYear from news';
+
+		return $this->execution($sql)[0]['newestYear'];
 	}
 }

@@ -6,19 +6,20 @@
 class helpers
 {
 	private $sysRoot;
+	private $helperModel;
 
 	function __construct($s) {
 		$this->sysRoot = $s;
+
+		require_once $this->sysRoot . '/Model/mysqlModel.php';
+		require_once $this->sysRoot . '/Model/helperModel.php';
+
+		$this->helperModel = new helperModel();
 	}
 
 	function newsLink()
 	{
-		require_once $this->sysRoot . '/Model/mysqlModel.php';
-		require_once $this->sysRoot . '/Model/helperModel.php';
-
-		$helperModel = new helperModel();
-
-		$years = $helperModel->fetchYears();
+		$years = $this->helperModel->fetchYears();
 
 		$code = '';
 
@@ -27,5 +28,12 @@ class helpers
 		}
 
 		return $code;
+	}
+
+	function newestYear() {
+
+		$newestYear = $this->helperModel->fetchNewestYear(); 
+
+		return $newestYear;
 	}
 }
