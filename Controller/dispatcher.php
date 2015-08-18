@@ -45,10 +45,10 @@ class dispatcher {
 				break;
 			// news一覧やnews
 			case 'news':
-
 				// news一覧へのアクセスか、newsへのアクセスかを切り替える
 
 				if(0 < count($params[2])) {
+					// /news/**へのアクセス
 					if(0 < count($params[3])) {
 						// /news/20**/**へのアクセス
 						require_once $this->sysRoot . '/Controller/newsController.php';
@@ -69,11 +69,11 @@ class dispatcher {
 				break;
 			default: 
 				require_once $this->sysRoot . '/Controller/staticController.php';
-				//$controllerInstance = new staticController(this->sysRoot, $params);
+				$controllerInstance = new staticController($this->sysRoot, $params);
 				break;
 		}
 
-		//$controllerInstance->run();
+		$controllerInstance->run();
 	}
 }
 

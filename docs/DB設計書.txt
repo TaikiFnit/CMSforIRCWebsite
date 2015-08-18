@@ -1,0 +1,19 @@
+情報研究部 Website 2015 DB 設計書
+2015-08-18
+
+DB name : ircnews
+
+table name: news
+table option: 'utf8'
+table columns: (
+  id int not null auto_increment primary key unique,  // uniqueでauto incrementなid
+  news_id int,  // 記事番号
+  title text,   // 記事の見出し
+  content text, // 記事の本文
+  author text,  // 記事の作成者
+  team int,     // どのチームに関する記事か
+  created date, // 記事の作成日
+  imageNum int, // 画像の数
+  image1 text,  // 画像1へのリンク
+  image2 text   // 画像2へのリンク
+)

@@ -4,15 +4,28 @@
 class staticController {
 
 	private $sysRoot;
+	private $params;
 
-	function __construct($s) {
+	function __construct($s, $p) {
 		$this->sysRoot = $s;
+		$this->params = $p;
 	}
 
 	function run() {
-		// TODO
+		
 		// もし、渡されたファイル名のファイルが存在すればそれをreadfile, else notFoundをreadfile
-		readfile($this->sysRoot . '/View/index.html');
 
+		$filePath = $this->sysRoot . '/View/' . $this->params[1];
+
+		if(file_exists($filePath)) {
+			// ファイルが存在
+			readfile($filePath);
+		}
+		else {
+			// notFoundを送信	
+			header('HTTP/1.0 404 Not Found');
+
+			echo "よんぜろよん	　のっとふぁうんど";
+		}
 	}
 }
