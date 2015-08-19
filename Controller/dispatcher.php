@@ -68,6 +68,11 @@ class dispatcher {
 				}
 
 				break;
+
+			case 'sp':
+				// spサイトへのアクセス... すでに存在しないのでリダイレクト
+				header('Location: /');
+				exit;
 				
 			default: 
 				require_once $this->sysRoot . '/Controller/staticController.php';

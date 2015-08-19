@@ -30,7 +30,7 @@ class staticController {
 			// notFoundを送信	
 			header('HTTP/1.0 404 Not Found');
 
-			echo "よんぜろよん	　のっとふぁうんど";
+			$tpl->show($this->sysRoot . '/View/notFound.html');
 		}
 	}
 }
