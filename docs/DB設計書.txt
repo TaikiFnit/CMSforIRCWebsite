@@ -13,7 +13,9 @@ table columns: (
   author text,  // 記事の作成者
   team int,     // どのチームに関する記事か
   created date, // 記事の作成日
-  imageNum int, // 画像の数
-  image1 text,  // 画像1へのリンク
-  image2 text   // 画像2へのリンク
+  images int,     // 画像の枚数
+  image_src1 text,// 1枚目の画像のリンク
+  image_src2 text,// 2枚目の画像のリンク
+  image_alt1 text,// 1枚目の画像のalt属性のテキストデータ
+  image_alt2 text // 2枚目の画像のalt属性のテキストデータ
 )

@@ -6,7 +6,6 @@
 class mysqlModel
 {
 	protected function connectDB() {
-
 		try {
 
 			$options = array(
@@ -20,14 +19,13 @@ class mysqlModel
 		}
 	}
 	
-	protected function execution($sql) {
+	protected function execution($dbh, $sql) {
 
-		$stmt = $this->dbh->prepare($sql);
+		$stmt = $dbh->prepare($sql);
 
 		$stmt->execute();
 
 		return $stmt->fetchAll();
 	}
-
 }
 

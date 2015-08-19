@@ -56,7 +56,6 @@ class dispatcher {
 					$params[2] = $this->helpers->newestYear();
 				}
 
-				// /news/**へのアクセス
 				if(count($params[3]) == 0) {
 					// news一覧へのアクセス
 					require_once $this->sysRoot . '/Controller/newsListController.php';

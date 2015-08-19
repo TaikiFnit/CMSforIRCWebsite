@@ -1,6 +1,5 @@
 <?php
 
-
 /**
 * 最新4件のニュースを抽出
 */
@@ -15,14 +14,8 @@ class indexModel extends mysqlModel {
 
 	function run() {
 
-		$sql = 'select `news_id`, `title`, date_format(`created`, "%Y") as year, `created`, `team`, `images`, `image_src1`, `image_alt1` from news order by created desc limit 4';
+		$sql = 'select `news_id`, `title`, date_format(`created`, "%Y") as year, `created`, date_format(`created`, "%Y年%m月%d日") as jpcreated,  `team`, `images`, `image_src1`, `image_alt1` from news order by created desc limit 4';
 
-		$stmt = $this->dbh->prepare($sql);
-
-		$stmt->execute();
-
-		$this->dbh = null;
-
-		return $stmt->fetchAll();
+		return $this->execution($this->dbh, $sql);	
 	}
 }

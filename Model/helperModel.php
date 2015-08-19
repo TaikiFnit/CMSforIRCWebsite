@@ -17,13 +17,13 @@ class helperModel extends mysqlModel {
 
 		$sql = 'select date_format(`created`, "%Y") as year from news group by date_format(`created`, "%Y") order by created desc';
 
-		return $this->execution($sql);	
+		return $this->execution($this->dbh, $sql);	
 	}
 
 	function fetchNewestYear() {
 
 		$sql = 'select max(date_format(`created`, "%Y")) as newestYear from news';
 
-		return $this->execution($sql)[0]['newestYear'];
+		return $this->execution($this->dbh, $sql)[0]['newestYear'];
 	}
 }

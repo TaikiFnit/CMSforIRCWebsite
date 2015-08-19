@@ -3,8 +3,7 @@
 /**
 * ニュース一覧を抽出
 */
-
-class newsListModel extends mysqlModel
+class newsModel extends mysqlModel
 {
 	private $year;
 	private $news_id;
@@ -14,19 +13,14 @@ class newsListModel extends mysqlModel
 	{
 		$this->year = $y;
 		$this->news_id = $i;
+
 		$this->dbh = $this->connectDB();
 	}
 
 	function run() {
 
-		$sql = 
+		$sql = 'select news_id, title, created, date_format(created, "%Y年%m月%d日") as jpcreated, content, author, images, image_src1, image_src2, image_alt1, image_alt2 from news where news_id = ' . $this->news_id . ' and date_format(created, "%Y") = ' . $this->year;
 
-		$stmt = $this->dbh->prepare($sql);
-
-		$stmt->execute();
-
-		$this->dbh = null;
-
-		return $stmt->fetchAll();
+		return $this->execution($this->dbh, $sql)[0];
 	}
 }

@@ -23,10 +23,6 @@ class newsListController extends helpers{
 
 		$newsData = $newsListModel->run();
 
-		$teamsImg = array('/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg');
-
-		$teamsName = array('IRC', "HARD", "SOFT", "WEB");
-
 		if(!empty($newsData)) {
 			// データが存在
 
@@ -40,11 +36,7 @@ class newsListController extends helpers{
 
 				$code .= '<p><time datetime="' . $newsData[$i]['created'] . '">' . $newsData[$i]['jpcreated'] . '</time></p>';
 
-				$teamsImg = array('/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg');
-
-				$teamsName = array('IRC', "HARD", "SOFT", "WEB");
-
-				$code .= '<p><span class="' . mb_strtolower($teamsName[$newsData[$i]['team']]) . '">' . $teamsName[$newsData[$i]['team']] . '</span></p>';
+				$code .= '<p><span class="' .TEAMSCLASS[$newsData[$i]['team']] . '">' . TEAMSNAME[$newsData[$i]['team']] . '</span></p>';
 
 				$code .= '</div>';
 
@@ -53,9 +45,9 @@ class newsListController extends helpers{
 				$code .= '</a></li>';
 			}
 
-			require_once $this->sysRoot . '/Controller/template.php';
+			require_once $this->sysRoot . '/Controller/templateController.php';
 
-			$tpl = new template();
+			$tpl = new templateController($this->sysRoot);
 
 			$tpl->newsList = $code;
 			$tpl->year = $this->year;
