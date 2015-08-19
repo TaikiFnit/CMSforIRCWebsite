@@ -15,11 +15,16 @@ class staticController {
 		
 		// もし、渡されたファイル名のファイルが存在すればそれをreadfile, else notFoundをreadfile
 
+		require_once $this->sysRoot . '/Controller/templateController.php';
+
+		$tpl = new templateController($this->sysRoot);
+
 		$filePath = $this->sysRoot . '/View/' . $this->params[1];
 
 		if(file_exists($filePath)) {
 			// ファイルが存在
-			readfile($filePath);
+
+			$tpl->show($filePath);
 		}
 		else {
 			// notFoundを送信	
