@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0;
+	padding:0;
+	
+}
+
+body
+{
+	width:100%;	
+}
+
+@font-face
+{
+font-family: mplus-1p-regular;
+src: url('http://mplus-fonts.sourceforge.jp/webfonts/mplus-1p-regular.ttf')
+     format("truetype");
+}
+
+section{
+	width:1000px;
+	margin:15% auto;
+}
+
+
+.i{
+	vertical-align:-61px;
+	opacity:0;
+	float: left;
+	padding-top:93px;
+}
+
+.shelper
+{
+	  float: right;
+    margin-right: 140px;
+    opacity: 0;
+    padding-top: 88px;
+}
+
+.icon{
+	 float: left;
+    margin-left: 130px;
+    opacity: 0;
+}
+
+.ica{
+	margin-top:300px;
+}
+
+.moji1 ,.moji2 ,.moji3
+{
+	opacity:0	;
+	font-family:mplus-1p-regular;
+	margin-top:30px
+}
+
+.moji1
+{
+	color:#A2A2A2;
+	font-size:100px;
+}
+
+.moji2
+{
+	color:#A2A2A2;
+	font-size:100px;
+}
+
+.moji3
+{
+	color:#A2A2A2;
+	font-size:100px;
+}
+
+.bag,.bag2{
+	opacity:0;
+}
+
+.bag{
+	float:left;
+    margin-left:35px;
+	border-radius:10px;
+}
+
+
+.bag2
+{
+	color:#A2A2A2;
+	font-size:100px;
+	padding-top:42px;
+	margin-left: 350px;
+	font-family:mplus-1p-regular;
+}
+
+.last
+{
+	color: #A2A2A2;
+    font-family: mplus-1p-regular;
+    font-size: 100px;
+    margin-left: 292px;
+    opacity: 0;
+    width: 400px;
+    margin: 300px auto;
+}
+
+.replay
+{
+	cursor: pointer;
+   	margin:0 auto;
+    opacity: 0;
+	margin-left:15%;
+}
+
+.setu
+{
+	margin-top:15%;	
+}
+
+.newicon
+{
+	margin-top:15%;
+}
+
