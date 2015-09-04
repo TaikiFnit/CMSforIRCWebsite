@@ -73,7 +73,23 @@ class dispatcher {
 				// spサイトへのアクセス... すでに存在しないのでリダイレクト
 				header('Location: /');
 				exit;
-				
+
+				// admin page
+			case 'control':
+
+				$controlSysRoot = $this->sysRoot . '/CMS-on-PHP-v2';
+
+				echo $controlSysRoot;
+
+				exit;
+
+				require_once $controlSysRoot . '/config.php';
+				require_once $controlSysRoot . '/Controller/dispatcher.php';
+
+				$dispatcher = new controlDispatcher($controlSysRoot);
+				$dispatcher->run();
+				exit;
+
 			default: 
 				require_once $this->sysRoot . '/Controller/staticController.php';
 				$controllerInstance = new staticController($this->sysRoot, $params);

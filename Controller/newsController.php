@@ -32,7 +32,7 @@ class newsController extends helpers{
 			$imageAreaCode = '';
 
 			for($i = 0; $i < $newsData['images']; $i++) {
-				$imageAreaCode .= '<img src="' . $newsData['image_src' . ($i + 1)] . '" alt="' . $newsData['image_alt' . ($i + 1)] . '" class="newsImg">';
+				$imageAreaCode .= '<img src="' . NEWS_IMAGE_PATH . $newsData['image_src' . ($i + 1)] . '" alt="' . $newsData['image_alt' . ($i + 1)] . '" class="newsImg">';
 			}
 
 			$tpl = new templateController($this->sysRoot);

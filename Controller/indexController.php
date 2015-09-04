@@ -39,7 +39,7 @@ class indexController {
 
 			$code .= '<li><a href="/news/' . $newsData[$i]['year'] . '/' . $newsData[$i]['news_id'] . '">';
 
-			$code .= '<div><img src="' . $imgPath . '" alt="Alt"></div>';
+			$code .= '<div><img src="' . NEWS_IMAGE_PATH . $imgPath . '" alt="Alt"></div>';
 
 			$code .= '<p>' . $newsData[$i]['jpcreated'] . ' / ' . TEAMSNAME[$newsData[$i]['team']] . '</p>';
 
