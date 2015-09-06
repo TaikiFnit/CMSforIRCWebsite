@@ -13,4 +13,5 @@ error_reporting(E_ALL & ~E_NOTICE);
 // DBのteam番号に対応したチーム名とその画像
 const TEAMSCLASS = array('irc', 'hard', 'soft', 'web');
 const TEAMSNAME = array('IRC', "ハード班", "ソフト班", "ウェブ班");
-const TEAMSIMG = array('/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg');
+const TEAMSIMG = array('/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg')
+
