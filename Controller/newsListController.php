@@ -36,7 +36,7 @@ class newsListController extends helpers{
 
 				$code .= '<p><time datetime="' . $newsData[$i]['created'] . '">' . $newsData[$i]['jpcreated'] . '</time></p>';
 
-				$code .= '<p><span class="' .TEAMSCLASS[$newsData[$i]['team']] . '">' . TEAMSNAME[$newsData[$i]['team']] . '</span></p>';
+				$code .= '<p><span class="' . $this->helpers->teamsClass[$newsData[$i]['team']] . '">' . $this->helpers->teamsName[$newsData[$i]['team']] . '</span></p>';
 
 				$code .= '</div>';
 

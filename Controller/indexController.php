@@ -1,11 +1,12 @@
 <?php
 
-class indexController {
+class indexController extends helpers{
 
 	private $sysRoot;
 
 	function __construct($s) {
 		$this->sysRoot = $s;
+		$this->helpers = new helpers($this->sysRoot);
 	}
 
 	function run() {
@@ -34,14 +35,14 @@ class indexController {
 				// 画像が存在しない
 				// teamによって表示させる画像を切り替える
 
-				$imgPath = TEAMSIMG[$newsData[$i]['team']];
+				$imgPath = $this->helpers->teamsImg[$newsData[$i]['team']];
 			}
 
 			$code .= '<li><a href="/news/' . $newsData[$i]['year'] . '/' . $newsData[$i]['news_id'] . '">';
 
 			$code .= '<div><img src="' . NEWS_IMAGE_PATH . $imgPath . '" alt="Alt"></div>';
 
-			$code .= '<p>' . $newsData[$i]['jpcreated'] . ' / ' . TEAMSNAME[$newsData[$i]['team']] . '</p>';
+			$code .= '<p>' . $newsData[$i]['jpcreated'] . ' / ' . $this->helpers->teamsName[$newsData[$i]['team']] . '</p>';
 
 			$code .= '<p>' . $newsData[$i]['title'] . '</p>';
 

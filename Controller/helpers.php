@@ -3,10 +3,14 @@
 /**
 * ニュース一覧へのリンクなどを生成する関数が定義されたclass
 */
-class helpers
-{
+class helpers {
+
 	private $sysRoot;
 	private $helperModel;
+
+	public $teamsClass;
+	public $teamsName;
+	public $teamsImg;
 
 	function __construct($s) {
 		$this->sysRoot = $s;
@@ -15,6 +19,11 @@ class helpers
 		require_once $this->sysRoot . '/Model/helperModel.php';
 
 		$this->helperModel = new helperModel();
+
+		// DBのteam番号に対応したチーム名とその画像
+		$this->teamsClass = array('irc', 'hard', 'soft', 'web');
+		$this->teamsName = array('IRC', "ハード班", "ソフト班", "ウェブ班");
+		$this->teamsImg = array('/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg');
 	}
 
 	function newsLink()

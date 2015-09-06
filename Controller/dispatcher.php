@@ -1,7 +1,6 @@
 <?php
 
 // このクラスではリクエストに応じて使用するコントローラーのインスタンス化を行います
-
 class dispatcher {
 
 	private $sysRoot;
@@ -72,22 +71,6 @@ class dispatcher {
 			case 'sp':
 				// spサイトへのアクセス... すでに存在しないのでリダイレクト
 				header('Location: /');
-				exit;
-
-				// admin page
-			case 'control':
-
-				$controlSysRoot = $this->sysRoot . '/CMS-on-PHP-v2';
-
-				echo $controlSysRoot;
-
-				exit;
-
-				require_once $controlSysRoot . '/config.php';
-				require_once $controlSysRoot . '/Controller/dispatcher.php';
-
-				$dispatcher = new controlDispatcher($controlSysRoot);
-				$dispatcher->run();
 				exit;
 
 			default: 
