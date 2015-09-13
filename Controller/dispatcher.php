@@ -7,15 +7,22 @@ class dispatcher {
 	private $helpers;
 
 	function __construct($s) {
+
+/*
+		echo "fa";
+
 		$this->sysRoot = $s;
 
 		require_once $this->sysRoot . '/Controller/helpers.php';
 
 		$this->helpers = new helpers($this->sysRoot);
+		*/
 	}
 
 	function run() {
 
+
+		/*
 		// 末端の / を削除
 		if($_SERVER['REQUEST_URI'] != null) {
 			$param = rtrim($_SERVER['REQUEST_URI'], '/');
@@ -61,7 +68,6 @@ class dispatcher {
 					$controllerInstance = new newsListController($this->sysRoot, $params);
 				}
 				else {
-					// /news/20**/**へのアクセス
 					require_once $this->sysRoot . '/Controller/newsController.php';
 					$controllerInstance = new newsController($this->sysRoot, $params);
 				}
@@ -80,6 +86,7 @@ class dispatcher {
 		}
 
 		$controllerInstance->run();
+		*/
 	}
 }
 
