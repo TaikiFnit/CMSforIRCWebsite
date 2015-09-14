@@ -24,6 +24,8 @@ class helperModel extends mysqlModel {
 
 		$sql = 'select max(date_format(`created`, "%Y")) as newestYear from news';
 
-		return $this->execution($this->dbh, $sql)[0]['newestYear'];
+		$results = $this->execution($this->dbh, $sql);
+
+		return $results[0]['newestYear'];
 	}
 }

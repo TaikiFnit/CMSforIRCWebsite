@@ -21,6 +21,8 @@ class newsModel extends mysqlModel
 
 		$sql = 'select news_id, title, created, date_format(created, "%Y年%m月%d日") as jpcreated, content, author, images, image_src1, image_src2, image_alt1, image_alt2 from news where news_id = ' . $this->news_id . ' and date_format(created, "%Y") = ' . $this->year;
 
-		return $this->execution($this->dbh, $sql)[0];
+		$results = $this->execution($this->dbh, $sql);
+
+		return $results[0];
 	}
 }

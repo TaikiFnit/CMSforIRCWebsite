@@ -38,11 +38,25 @@ class indexController extends helpers{
 				$imgPath = $this->helpers->teamsImg[$newsData[$i]['team']];
 			}
 
-			$code .= '<li><a href="/news/' . $newsData[$i]['year'] . '/' . $newsData[$i]['news_id'] . '">';
+			$code = '';
+
+			// split for php5.2
+			$code .= '<li><a href="/news/';
+			$code .= $newsData[$i]['year'];
+			$code .= '/';
+			$code .= $newsData[$i]['news_id'];
+			$code .= '">';
 
 			$code .= '<div><img src="' . NEWS_IMAGE_PATH . $imgPath . '" alt="Alt"></div>';
 
-			$code .= '<p>' . $newsData[$i]['jpcreated'] . ' / ' . $this->helpers->teamsName[$newsData[$i]['team']] . '</p>';
+			// split for php5.2
+			//$code .= '<p>' . $newsData[$i]['jpcreated'] . ' / ' . $this->helpers->teamsName[$newsData[$i]['team']] . '</p>';
+
+			$code .= '<p>';
+			$code .= $newsData[$i]['jpcreated'];
+			$code .= ' / ';
+			$code .= $this->helpers->teamsName[$newsData[$i]['team']];
+			$code .= '</p>';
 
 			$code .= '<p>' . $newsData[$i]['title'] . '</p>';
 

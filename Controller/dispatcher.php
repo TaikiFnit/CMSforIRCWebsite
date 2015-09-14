@@ -8,21 +8,15 @@ class dispatcher {
 
 	function __construct($s) {
 
-/*
-		echo "fa";
-
 		$this->sysRoot = $s;
 
 		require_once $this->sysRoot . '/Controller/helpers.php';
 
 		$this->helpers = new helpers($this->sysRoot);
-		*/
 	}
 
 	function run() {
 
-
-		/*
 		// 末端の / を削除
 		if($_SERVER['REQUEST_URI'] != null) {
 			$param = rtrim($_SERVER['REQUEST_URI'], '/');
@@ -56,13 +50,13 @@ class dispatcher {
 			case 'news':
 				// news一覧へのアクセスか、newsへのアクセスかを切り替える
 
-				if(count($params[2]) == 0) {
+				if(empty($params[2])) {
 					// /news/　へのアクセス
 					// So, 最新のニュース一覧を返す
 					$params[2] = $this->helpers->newestYear();
 				}
 
-				if(count($params[3]) == 0) {
+				if(empty($params[3])) {
 					// news一覧へのアクセス
 					require_once $this->sysRoot . '/Controller/newsListController.php';
 					$controllerInstance = new newsListController($this->sysRoot, $params);
@@ -86,7 +80,6 @@ class dispatcher {
 		}
 
 		$controllerInstance->run();
-		*/
 	}
 }
 
