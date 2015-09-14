@@ -21,6 +21,8 @@ class indexController extends helpers{
 
 		// newsDataを利用してcodeを生成
 
+		$code = '';
+
 		for($i = 0; $i < count($newsData); $i++) {
 
 			$imgPath = '';
@@ -29,16 +31,16 @@ class indexController extends helpers{
 				// 画像が存在する
 				// So, display it.
 
-				$imgPath = $newsData[$i]['image_src1'];
+				$imgPath = NEWS_IMAGE_PATH . $newsData[$i]['image_src1'];
+				$imgAlt = $newsData[$i]['image_alt1'];
 			}
 			else {
 				// 画像が存在しない
 				// teamによって表示させる画像を切り替える
 
 				$imgPath = $this->helpers->teamsImg[$newsData[$i]['team']];
+				$imgAlt = $this->helpers->teamsName[$newsData[$i]['team']];
 			}
-
-			$code = '';
 
 			// split for php5.2
 			$code .= '<li><a href="/news/';
@@ -47,7 +49,7 @@ class indexController extends helpers{
 			$code .= $newsData[$i]['news_id'];
 			$code .= '">';
 
-			$code .= '<div><img src="' . NEWS_IMAGE_PATH . $imgPath . '" alt="Alt"></div>';
+			$code .= '<div><img src="' . $imgPath . '" alt="' . $imgAlt . '" style="width: 200px;"></div>';
 
 			// split for php5.2
 			//$code .= '<p>' . $newsData[$i]['jpcreated'] . ' / ' . $this->helpers->teamsName[$newsData[$i]['team']] . '</p>';

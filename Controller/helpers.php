@@ -23,7 +23,7 @@ class helpers {
 		// DBのteam番号に対応したチーム名とその画像
 		$this->teamsClass = array('irc', 'hard', 'soft', 'web');
 		$this->teamsName = array('IRC', "ハード班", "ソフト班", "ウェブ班");
-		$this->teamsImg = array('/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg', '/images/irc.jpg');
+		$this->teamsImg = array('images/irc.jpg', 'images/irc.jpg', 'images/irc.jpg', 'images/irc.jpg');
 	}
 
 	function newsLink()
